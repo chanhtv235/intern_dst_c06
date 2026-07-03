@@ -2,15 +2,18 @@
 const studentList = [
     {
         id:1,
-        name:"chanh"
+        name:"chanh",
+        score:10
     },
     {
         id:2,
-        name:"hải"
+        name:"hải",
+        score:7
     },
     {
         id:3,
-        name:"tiến"
+        name:"tiến",
+        score: 5
     }
 ]
 export function getAll(){
@@ -25,4 +28,8 @@ export function deleteById(id){
             break;
         }
     }
+}
+export function add(student){
+    studentList.push(student);
+    return true;
 }
