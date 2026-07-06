@@ -1,4 +1,5 @@
 
+
 const studentList = [
     {
         id:1,
@@ -16,20 +17,38 @@ const studentList = [
         score: 5
     }
 ]
-export function getAll(){
+import api from "../axiosConfig/api.js";
+export async function getAll(){
     // call API;
-    return [...studentList];
-}
-export function deleteById(id){
-    // call API;
-    for (let i = 0; i <studentList.length ; i++) {
-        if (studentList[i].id ==id){
-            studentList.splice(i,1);
-            break;
-        }
+    try{
+        const res= await api.get(`/students`);
+        console.log(res);
+        return res.data;
+    }catch (e){
+      console.log(e);
+      console.log("Lỗi call API")
     }
+    return [] ;
 }
-export function add(student){
-    studentList.push(student);
-    return true;
+export async function deleteById(id){
+    // call API;
+    try{
+        const res= await api.delete(`/students/${id}`);
+        console.log(res);
+        return res.status =="200";
+    }catch (e){
+        console.log(e);
+        console.log("Lỗi call API")
+    }
+    return false;
+}
+export async function add(student){
+    try{
+        const res= await api.post(`/students`,student);
+        return res.status =="201";
+    }catch (e){
+        console.log(e);
+        console.log("Lỗi call API")
+    }
+    return false;
 }

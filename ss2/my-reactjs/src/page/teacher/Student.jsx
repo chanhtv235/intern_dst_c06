@@ -1,7 +1,7 @@
 
 import React, {useEffect, useState} from "react";
 import {getAll} from "../../service/studentService.js";
-import DeleteComponent from "../../components/DeleteComponent.jsx";
+import DeleteComponent from "../student/DeleteComponent.jsx";
 import {Link} from "react-router-dom";
 
 const Student = ()=>{

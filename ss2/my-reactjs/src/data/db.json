@@ -1,0 +1,19 @@
+{
+  "students": [
+    {
+      "id": 1,
+      "name": "chánh",
+      "score": 7
+    },
+    {
+      "name": "Tran Van",
+      "score": "66",
+      "id": 2
+    },
+    {
+      "name": "Tien Tran",
+      "score": "5",
+      "id": 3
+    }
+  ]
+}

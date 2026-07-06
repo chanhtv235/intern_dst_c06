@@ -9,10 +9,9 @@ import * as Yub from "yup";
 const Add = ()=>{
     const [student,setStudent] = useState({});
     const navigate = useNavigate();
-    const handleAdd = (value)=>{
+    const handleAdd = async (value)=>{
         console.log(value)
-
-        let isSuccess = add(value);
+        let isSuccess = await add(value);
         if (isSuccess){
             toast.success("Thêm mới thành công")
             // thêm mới thành công
@@ -23,7 +22,7 @@ const Add = ()=>{
         }
     }
     const  validation = Yub.object({
-        id:Yub.number().required("Yêu cầu nhập").min(1,"Phải lớn hơn 0"),
+        // id:Yub.number().required("Yêu cầu nhập").min(1,"Phải lớn hơn 0"),
         name:Yub.string().required("Yêu cầu nhập tên ")
             .matches(/^[A-Z][a-z]*(\s[A-Z][a-z]*)+$/,"Tên không đúng định dạng")
     });
@@ -33,11 +32,11 @@ const Add = ()=>{
             <h2>Thêm mới </h2>
             <Formik  initialValues={student} onSubmit={handleAdd} validationSchema={validation}>
                 <Form>
-                    <div>
-                        <label>Id</label>
-                        <Field type ={'text'} name = {'id'}/>
-                        <ErrorMessage name={'id'} component={'small'}/>
-                    </div>
+                    {/*<div>*/}
+                    {/*    <label>Id</label>*/}
+                    {/*    <Field type ={'text'} name = {'id'}/>*/}
+                    {/*    <ErrorMessage name={'id'} component={'small'}/>*/}
+                    {/*</div>*/}
                     <div>
                         <label>Name</label>
                         <Field type ={'text'} name = {'name'}/>

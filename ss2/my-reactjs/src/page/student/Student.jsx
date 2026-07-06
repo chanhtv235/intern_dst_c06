@@ -1,7 +1,7 @@
 
 import React, {useEffect, useState} from "react";
 import {getAll} from "../../service/studentService.js";
-import DeleteComponent from "../../components/DeleteComponent.jsx";
+import DeleteComponent from "./DeleteComponent.jsx";
 import {Link} from "react-router-dom";
 
 const Student = ()=>{
@@ -11,7 +11,13 @@ const Student = ()=>{
     const[needReload,setNeedReload] = useState(false);
     useEffect(() => {
         console.log("-----useEffect----------")
-        setStudentList([...getAll()]);
+        const fetData = async ()=>{
+            const data = await getAll();
+            setStudentList(data);
+        }
+        fetData();
+
+
     },[needReload]);
 
     const handleOpenModal = (student)=>{
